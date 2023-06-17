@@ -26,7 +26,7 @@ const Login = () => {
         e.preventDefault();
 
         axios({
-            url : `https://teal-flag-2494-json-server.onrender.com/users`,
+            url : `https://rich-ruby-bison-veil.cyclic.app/users`,
             method: 'get'
         })
         .then((res) => {
@@ -66,7 +66,9 @@ const Login = () => {
                 </Stack>
             </form>
         </Box>
+        <Footer/>
     </div>
+    
   )
 }
 

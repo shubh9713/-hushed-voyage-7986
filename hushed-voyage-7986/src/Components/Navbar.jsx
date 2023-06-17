@@ -68,7 +68,7 @@ const Navbar = () => {
         {isAuth ? (
           <Link to={`/users/${user.id}`}>
             <Text fontSize="xl" fontWeight={700} _hover={{ color: '#9d9b9e' }}>
-              My Learning
+              Active Courses
             </Text>
           </Link>
         ) : null}
@@ -76,7 +76,7 @@ const Navbar = () => {
           About Us
         </Text>
         <Text fontSize="xl" fontWeight={700} _hover={{ color: '#9d9b9e' }}>
-          Members
+          Mentors
         </Text>
         <Text fontSize="xl" fontWeight={700} _hover={{ color: '#9d9b9e' }}>
           Pricing
