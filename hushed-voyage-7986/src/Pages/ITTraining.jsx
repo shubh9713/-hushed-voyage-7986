@@ -1,33 +1,32 @@
 import { Box, Flex, Grid, GridItem, Heading, Input, Radio, RadioGroup, Spacer, Stack, Text, VStack } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import Navbar from '../Components/Navbar';
 import { Link } from 'react-router-dom';
-import { color } from 'framer-motion';
 
-const Programming = () => {
+const ITTraining = () => {
 
-    const [programmingData, setProgrammingData] =  useState([]);
+    const [itData, setITData] = useState([]);
     const [query, setQuery] = useState("");
     const [spec, setSpec] = useState("");
     const [level, setLevel] = useState("");
 
     const fetchProgramsBySearch = (query) => {
-        return `https://rich-ruby-bison-veil.cyclic.app/programming?q=${query}`;
+        return `https://teal-flag-2494-json-server.onrender.com/IT?q=${query}`;
     }
 
     const fetchPrograms = (spec, level) => {
         if(spec === "" && level === ""){
-            return `https://rich-ruby-bison-veil.cyclic.app/programming`;
+            return `https://teal-flag-2494-json-server.onrender.com/IT`;
         }
         else if(spec !== "" && level === ""){
-            return `https://rich-ruby-bison-veil.cyclic.app/programming?specialization=${spec}`;
+            return `https://teal-flag-2494-json-server.onrender.com/IT?specialization=${spec}`;
         }
         else if(spec === "" && level !== ""){
-            return `https://rich-ruby-bison-veil.cyclic.app/programming?level=${level}`;
+            return `https://teal-flag-2494-json-server.onrender.com/IT?level=${level}`;
         }
         else{
-            return `https://rich-ruby-bison-veil.cyclic.app/programming?specialization=${spec}&level=${level}`;
+            return `https://teal-flag-2494-json-server.onrender.com/IT?specialization=${spec}&level=${level}`;
         }
     }
 
@@ -46,7 +45,7 @@ const Programming = () => {
             method : 'get'
         })
         .then((res) => {
-            setProgrammingData(res.data);
+            setITData(res.data);
         })
         .catch((err) => {
             console.log(err);
@@ -57,8 +56,8 @@ const Programming = () => {
     return (
         <div style={{ fontFamily: "Montserrat, sans-serif" }}>
             <Navbar />
-            <Heading style={{ textAlign: "left", padding: "30px 30px" }}>Programming</Heading>
-            <Flex bg="gray.100" style={{ padding: "60px 30px" }}>
+            <Heading style={{ textAlign: "left", padding: "30px 40px" }}>IT Training</Heading>
+            <Flex bg="gray.100" style={{ padding: "60px 40px"}}>
                 <VStack w="25%" spacing="30px">
                     <Box w="100%" style={{ borderRadius: "25px", background: "white", padding: "20px 20px" }}>
                         <Text style={{ fontWeight: "700", fontSize: "20px", paddingBottom: "15px" }}>Program Search</Text>
@@ -71,14 +70,20 @@ const Programming = () => {
                                 <Radio colorScheme='blue' value='' onChange={(e) => setSpec(e.target.value)}>
                                     All
                                 </Radio>
-                                <Radio colorScheme='blue' value='frontend' onChange={(e) => setSpec(e.target.value)}>
-                                    Frontend
+                                <Radio colorScheme='blue' value='testing' onChange={(e) => setSpec(e.target.value)}>
+                                    Testing
                                 </Radio>
-                                <Radio colorScheme='blue' value='backend' onChange={(e) => setSpec(e.target.value)}>
-                                    Backend
+                                <Radio colorScheme='blue' value='analytics' onChange={(e) => setSpec(e.target.value)}>
+                                    Analytics
                                 </Radio>
-                                <Radio colorScheme='blue' value='fullstack' onChange={(e) => setSpec(e.target.value)}>
-                                    FullStack
+                                <Radio colorScheme='blue' value='programing' onChange={(e) => setSpec(e.target.value)}>
+                                    Programming
+                                </Radio>
+                                <Radio colorScheme='blue' value='project management' onChange={(e) => setSpec(e.target.value)}>
+                                    Project Management
+                                </Radio>
+                                <Radio colorScheme='blue' value='architecture' onChange={(e) => setSpec(e.target.value)}>
+                                    Architecture
                                 </Radio>
                             </Stack>
                         </RadioGroup>
@@ -107,15 +112,14 @@ const Programming = () => {
                 <Grid
                     w="70%"
                     margin="auto"
-                    templateColumns='repeat(1, 1fr)'
-                    gap={10}
-                    
+                    templateColumns='repeat(2, 1fr)'
+                    gap={20}
                 >
                     {
-                        programmingData.map((program) => (
-                            <Link key={program.id} to={`/programs/${program.id}`} >
-                                <GridItem  style={{height: "300px", borderRadius: "25px", padding: "15px", backgroundColor: "white", textAlign: "left", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", position: "relative"}}>
-                                    <Heading style={{ textAlign: "left" , color:"#002D62" }}>{program.title}</Heading>
+                        itData.map((program) => (
+                            <Link key={program.id} to={`/programs/${program.id}`}>
+                                <GridItem style={{height: "310px", borderRadius: "25px", padding: "15px", backgroundColor: "white", textAlign: "left", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", position: "relative"}}>
+                                    <Heading style={{ textAlign: "left" }}>{program.title}</Heading>
                                     <Box my={6}>
                                         <p style={{ textAlign: "left" }}>{program.description}</p>
                                     </Box>
@@ -123,7 +127,6 @@ const Programming = () => {
                                         <p><span style={{fontWeight: "600"}}>Specialization : </span>{program.specialization}</p>
                                         <p><span style={{fontWeight: "600"}}>Duration : </span>{program.duration}</p>
                                         <p><span style={{fontWeight: "600"}}>Level : </span>{program.level}</p>
-                                        <h3 style={{color:"#002D62" ,fontSize:"30px", fontWeight:"700"}}><span style={{fontWeight: "600"}}>Price :</span>{program.Price}</h3>
                                     </Box>
                                 </GridItem>
                             </Link>
@@ -135,4 +138,4 @@ const Programming = () => {
     )
 }
 
-export default Programming
+export default ITTraining
