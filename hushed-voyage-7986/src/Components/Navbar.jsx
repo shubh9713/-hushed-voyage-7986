@@ -1,5 +1,4 @@
-import { Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, HStack, Image, Spacer, Stack, Text, useDisclosure } from '@chakra-ui/react';
-import { HamburgerIcon } from '@chakra-ui/icons';
+import { Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, HStack, Image, Spacer, Stack, Text, useDisclosure, Popover, PopoverTrigger, PopoverContent, PopoverBody, PopoverArrow } from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
@@ -11,46 +10,9 @@ const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <div style={{ fontFamily: 'Montserrat, sans-serif', margin: 0 }}>
-      <Flex minWidth="max-content" alignItems="center" gap="7" px={5} paddingBottom={50}>
+    <div style={{ fontFamily: 'Montserrat, sans-serif', margin: 0, position: 'sticky', top: 0, zIndex: 999 , backgroundColor: "white"}}>
+      <Flex minWidth="max-content" alignItems="center" gap="7" px={5} paddingBottom="10px" paddingTop="10px">
         <HStack>
-          <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
-            <DrawerOverlay />
-            <DrawerContent>
-              <DrawerCloseButton />
-              <DrawerHeader fontSize="3xl" borderBottomWidth="1px" fontFamily="Montserrat, sans-serif">
-                Programs
-              </DrawerHeader>
-              <DrawerBody style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                <Stack spacing="24px">
-                  <Text fontSize="xl" _hover={{ color: '#9d9b9e' }}>
-                    <Link to="/ittraining">Information Technology</Link>
-                  </Text>
-                  <Text fontSize="xl" _hover={{ color: '#9d9b9e' }}>
-                    <Link to="/programming">Programming</Link>
-                  </Text>
-                  <Text fontSize="xl" _hover={{ color: '#9d9b9e' }}>
-                    <Link to="/ittraining">Analytics</Link>
-                  </Text>
-                  <Text fontSize="xl" _hover={{ color: '#9d9b9e' }}>
-                    <Link to="/ittraining">Testing</Link>
-                  </Text>
-                  <Text fontSize="xl" _hover={{ color: '#9d9b9e' }}>
-                    <Link to="/ittraining">Product and Projects</Link>
-                  </Text>
-                  <Text fontSize="xl" _hover={{ color: '#9d9b9e' }}>
-                    <Link to="/ittraining">IT Architecture</Link>
-                  </Text>
-                  <Text fontSize="xl" _hover={{ color: '#9d9b9e' }}>Blockchain</Text>
-                  <Text fontSize="xl" _hover={{ color: '#9d9b9e' }}>Marketing</Text>
-                  <Text fontSize="xl" _hover={{ color: '#9d9b9e' }}>
-                    <Link to="/design">Design</Link>
-                  </Text>
-                  <Text fontSize="xl" _hover={{ color: '#9d9b9e' }}>Games</Text>
-                </Stack>
-              </DrawerBody>
-            </DrawerContent>
-          </Drawer>
           <Link to="/">
             <Image
               src={Logo}
@@ -61,8 +23,8 @@ const Navbar = () => {
           </Link>
         </HStack>
         <Text fontSize="xl" fontWeight={700} _hover={{ color: '#9d9b9e' }}>
-        <Link to="/" style={{ textDecoration: 'none' }}>
-          Home
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            Home
           </Link>
         </Text>
         {isAuth ? (
@@ -81,18 +43,56 @@ const Navbar = () => {
         <Text fontSize="xl" fontWeight={700} _hover={{ color: '#9d9b9e' }}>
           Pricing
         </Text>
-        <Text fontSize="xl" fontWeight={700} _hover={{ color: '#9d9b9e' }}>
-          Features
-          <Button colorScheme="gray" onClick={onOpen}>
-            <ChevronDownIcon />
-          </Button>
-        </Text>
+        <Popover>
+          <PopoverTrigger>
+            <Button
+              variant="ghost"
+              colorScheme="gray"
+              p={0}
+              _hover={{ backgroundColor: 'transparent' }}
+              _focus={{ boxShadow: 'none' }}
+              onClick={onOpen}
+            >
+              <Text fontSize="xl" fontWeight={700} _hover={{ color: '#9d9b9e' }}>
+                Courses
+              </Text>
+              <ChevronDownIcon w={6} h={6} />
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent bg="white" shadow="lg" zIndex={999}>
+            <PopoverArrow />
+            <Stack spacing="24px" p={4}>
+              <Text fontSize="xl" _hover={{ color: '#9d9b9e' }}>
+                <Link to="/ittraining">Information & Technology</Link>
+              </Text>
+              <Text fontSize="xl" _hover={{ color: '#9d9b9e' }}>
+                <Link to="/programming">Coading And Programming</Link>
+              </Text>
+              <Text fontSize="xl" _hover={{ color: '#9d9b9e' }}>
+                <Link to="/programming">Web Designing</Link>
+              </Text>
+              <Text fontSize="xl" _hover={{ color: '#9d9b9e' }}>
+                <Link to="/ittraining">Testing And Analysing</Link>
+              </Text>
+              
+              <Text fontSize="xl" _hover={{ color: '#9d9b9e' }}>
+                <Link to="/ittraining">Machine Learning</Link>
+              </Text>
+              
+              <Text fontSize="xl" _hover={{ color: '#9d9b9e' }}>App Designing</Text>
+            </Stack>
+          </PopoverContent>
+        </Popover>
         <Spacer />
         {isAuth ? (
           <HStack>
             <Text>Hi, {user.name}</Text>
             <Spacer />
-            <Button colorScheme="gray" _hover={{ backgroundColor: 'black', color: 'white' }} onClick={logout}>
+            <Button
+              colorScheme="gray"
+              _hover={{ backgroundColor: 'black', color: 'white' }}
+              onClick={logout}
+            >
               Logout
             </Button>
           </HStack>

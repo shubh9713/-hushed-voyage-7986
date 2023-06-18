@@ -1,77 +1,60 @@
-import { Box, Flex, Grid, GridItem, Image, Spacer, Stack, Text,Button, grid, Center } from '@chakra-ui/react'
-import React from 'react'
-import Intro1 from "../Images/Intro1.jpg"
-import image1 from "../Images/image1.jpg"
-
-
+import { Box, Flex, Grid, Image, Spacer, Stack, Text, Button } from '@chakra-ui/react';
+import React from 'react';
+import Intro1 from "../Images/Intro1.jpg";
+import image1 from "../Images/image1.jpg";
+import GroupStudy from "../Images/GroupStudy.jpg";
+import OnlineClasses from "../Images/OnlineClasses.jpg";
 
 const IntroSection = () => {
   return (
-    <div style={{fontFamily: "Montserrat, sans-serif"}}>
-        <Flex margin="100px 0px 100px 50px">
-            <Stack textAlign="left">
-                {/* <p style={{fontWeight: "700", fontSize: "20px"}}>Brainsania - education in IT</p> */}
-                <Box style={{fontWeight: "1000", fontSize: "55px"}}>
-                    <Text _hover={{color: "#9d9b9e"}}>Where we</Text>
-                    <Text _hover={{color: "#9d9b9e"}}>believe you</Text>
-                    <Text _hover={{color: "#9d9b9e"}}>are a priority.</Text>
-                </Box>
-                <p style={{fontWeight: "500"}}>E_Learn is a Global training provider based <br /> across the UK thah specialises in accredited <br /> and bespoke training courses.</p>
-                {/* <Grid
-                    width="100%"
-                    pt={50}
-                    templateColumns='repeat(3, 1fr)'
-                    gap={10}
-                    fontWeight={500}
-                >
-                    <GridItem>
-                        Long-term training programs, short intensive programs and an extensive knowledge base
-                    </GridItem>
-                    <GridItem>
-                        Lectures, seminars, webinars, events, articles, videos and other formats
-                    </GridItem>
-                    <GridItem>
-                        The largest community of IT professionals, experts, alumni and newcomers
-                    </GridItem>
-                </Grid> */}
-             <Box style={grid} paddingTop={10} > 
-             <input type="text" placeholder='Put your email here'/> <Button>Start Learning</Button>
-             </Box>
-                
-            </Stack>
-            <Spacer />
-            <Image src={Intro1} alt='illustration-design' width="700px" marginRight={50}/>
-        </Flex>
+    <div style={{ fontFamily: "Montserrat, sans-serif" }}>
+      <Flex margin="50px 50px 50px 50px" bg="#40E0D0" borderRadius="20px" p="50px">
+        <Stack textAlign="left" spacing={5} color="white">
+          <Box style={{ fontWeight: "bold", fontSize: "50px" }}>
+            <Text _hover={{ color: "#9d9b9e" }}>Where we</Text>
+            <Text _hover={{ color: "#9d9b9e" }}>believe you</Text>
+            <Text _hover={{ color: "#9d9b9e" }}>are a priority.</Text>
+          </Box>
+          <p style={{ fontWeight: "500" }}>
+            E_Learn is a global training provider based in the UK that specializes in accredited and bespoke training courses.
+          </p>
+          <Stack direction="row" spacing={3}>
+            <input type="text" placeholder='Put your email here' style={{ padding: "10px", borderRadius: "5px", border: "none" }} />
+            <Button colorScheme="teal" variant="solid" borderRadius="5px">Start Learning</Button>
+          </Stack>
+        </Stack>
+        <Spacer />
+        <Image src={GroupStudy} alt='illustration-design' width="500px" borderRadius="20px" />
+      </Flex>
 
-        <Flex margin="100px 0px 100px 50px">
-
-            <Image src={image1} alt='image1'
-            width={500}
-            height={500}
-            borderRadius="50%"
-            />
-            <Spacer/>
-            <Stack textAlign="left" >
-             <Box paddingLeft={200}>
-                    <Text _hover={{color: "#9d9b9e"}} style={{fontWeight: "1000", fontSize: "40px"}}>What kind of Courses offer Learning Platform</Text>
-                    <p>High Resolution Video is Video of Higher resolution Lorem <br /> ipsum dolor sit amet consectetur adipisicing elit. <br /> Ducimus id adipisci laudantium illo numquam facere unde perferendis aut in possimus.</p>
-                    <Box padding={5,10,5,10}>
-                    <Button>1500+ Courses</Button>
-                    <Button>150+ Free Videos</Button>
-                    </Box>
-                    
-                    <Box>
-                    <Button>150K Free Lactures</Button>
-                    <Button>Quality Teachers</Button>
-                    </Box>
-                    
-                    
-             </Box>
-            </Stack>
-
-        </Flex>
+      <Flex margin="100px 0px 100px 50px">
+        <Image src={OnlineClasses} alt='image1' width={600} height={400} borderRadius="20px" />
+        <Spacer />
+        <Stack textAlign="left">
+          <Box paddingLeft={10}>
+            <Text style={{ fontWeight: "bold", fontSize: "30px" }}>What kind of courses does our Learning Platform offer?</Text>
+            <p style={{ fontSize: "18px" }}>
+              Our Learning Platform provides a wide range of courses and resources for your educational journey. With us, you can access:
+            </p>
+            <Grid templateColumns="repeat(2, 1fr)" gap={5} mt={5}>
+              <Box>
+                <Button colorScheme="teal" variant="solid">1500+ Courses</Button>
+              </Box>
+              <Box>
+                <Button colorScheme="teal" variant="solid">150+ Free Videos</Button>
+              </Box>
+              <Box>
+                <Button colorScheme="teal" variant="solid">150K Free Lectures</Button>
+              </Box>
+              <Box>
+                <Button colorScheme="teal" variant="solid">Quality Teachers</Button>
+              </Box>
+            </Grid>
+          </Box>
+        </Stack>
+      </Flex>
     </div>
   )
 }
 
-export default IntroSection
+export default IntroSection;
