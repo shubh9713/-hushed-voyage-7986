@@ -2,6 +2,11 @@ import { ChevronRightIcon } from '@chakra-ui/icons'
 import { Box, Button, Center, Grid, GridItem, Heading, Image, Stack, Text } from '@chakra-ui/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import MachineLearning from "../Images/MachineLearning.jpg"
+import Gaming from "../Images/Gaming.jpg"
+import JavaScript from "../Images/JavaScript.jpg"
+import OnlineMarketing from "../Images/OnlineMarketing.jpg"
+import Design from "../Images/Design.jpg"
 
 const Directions = () => {
   return (
@@ -14,62 +19,223 @@ const Directions = () => {
         </Text>
       </Stack>
       <Grid
-        width="90%"
-        margin="auto"
-        marginTop={50}
-        templateRows='repeat(2, 1fr)'
-        templateColumns='repeat(4, 1fr)'
-        gap={10}
+  width="90%"
+  margin="auto"
+  marginTop={50}
+  paddingLeft={10}
+  paddingTop={10}
+  paddingRight={10}
+  paddingBottom={10}
+  borderRadius={25}
+  templateRows='repeat(2, 1fr)'
+  templateColumns='repeat(3, 1fr)'
+  bgColor="#40E0D0"
+  gap={10}
+>
+  <GridItem>
+    <Box
+      borderRadius="20px"
+      height="100%"
+      bg="white"
+      padding="20px"
+      textAlign="center"
+    >
+      <Image
+        src={MachineLearning}
+        alt='programming'
+        style={{
+          borderRadius: "20px",
+          position: "relative",
+          width: "100%",
+          height: "200px", // Adjust the desired height
+          objectFit: "cover",
+        }}
+      />
+      <Text
+        style={{
+          fontWeight: "700",
+          fontSize: "24px",
+          color: "#52524f",
+          marginTop: "10px",
+        }}
       >
-        <GridItem>
-          <Image src="https://hb.bizmrg.com/frontend-scripts/assets/home/directions/programming.jpeg" alt='programming' style={{borderRadius: "20px",  position: "relative"}}/>
-          <Text style={{ fontWeight: "700", fontSize: "24px", color: "#52524f"}}>Programming</Text>
-        </GridItem>
-        <GridItem>
-          <Image src="https://hb.bizmrg.com/frontend-scripts/assets/home/directions/design.jpeg" alt='design' style={{borderRadius: "20px",  position: "relative"}}/>
-          <Text style={{ fontWeight: "700", fontSize: "24px", color: "#52524f"}}>Design</Text>
-          {/* <Text>Design</Text> */}
-        </GridItem>
-        <GridItem>
-          <Image src="https://hb.bizmrg.com/frontend-scripts/assets/home/directions/marketing.jpeg" alt='marketing' style={{borderRadius: "20px", position: "relative"}}/>
-          <Text style={{ fontWeight: "700", fontSize: "24px", color: "#52524f"}}>Marketing</Text>
-        </GridItem>
-        <GridItem>
-          <Image src="https://hb.bizmrg.com/frontend-scripts/assets/home/directions/management.jpeg" alt='control' style={{borderRadius: "20px",  position: "relative"}}/>
-          <Text style={{ fontWeight: "700", fontSize: "24px", color: "#52524f"}}>Control</Text>
-        </GridItem>
-        <GridItem>
-          <Image src="https://hb.bizmrg.com/frontend-scripts/assets/home/directions/analytics.jpeg" alt='analytics' style={{borderRadius: "20px",  position: "relative"}}/>
-          <Text style={{ fontWeight: "700", fontSize: "24px", color: "#52524f"}}>Analytics</Text>
-        </GridItem>
-        <GridItem>
-          <Image src="https://hb.bizmrg.com/frontend-scripts/assets/home/directions/games.jpeg" alt='game-development' style={{borderRadius: "20px",  position: "relative"}}/>
-          <Text style={{ fontWeight: "700", fontSize: "24px", color: "#52524f"}}>Game Development</Text>
-        </GridItem>
-        <GridItem>
-          <Image src="https://hb.bizmrg.com/frontend-scripts/assets/home/directions/programming.jpeg" alt='hi-tech' style={{borderRadius: "20px",  position: "relative"}}/>
-          <Text style={{ fontWeight: "700", fontSize: "24px", color: "#52524f"}}>Hi-tech</Text>
-        </GridItem>
-        <GridItem>
-          <Image src="https://hb.bizmrg.com/frontend-scripts/assets/home/directions/testing.jpeg" alt='testing' style={{borderRadius: "20px",  position: "relative"}}/>
-          <Text style={{ fontWeight: "700", fontSize: "24px", color: "#52524f"}}>Testing</Text>
-        </GridItem>
-      </Grid>
+        Machine Learning
+      </Text>
+    </Box>
+  </GridItem>
+  <GridItem>
+    <Box
+      borderRadius="20px"
+      height="100%"
+      bg="white"
+      padding="20px"
+      textAlign="center"
+    >
+      <Image
+        src={Gaming}
+        alt='design'
+        style={{
+          borderRadius: "20px",
+          position: "relative",
+          width: "100%",
+          height: "200px", // Adjust the desired height
+          objectFit: "cover",
+        }}
+      />
+      <Text
+        style={{
+          fontWeight: "700",
+          fontSize: "24px",
+          color: "#52524f",
+          marginTop: "10px",
+        }}
+      >
+        Game Development
+      </Text>
+    </Box>
+  </GridItem>
+  <GridItem>
+    <Box
+      borderRadius="20px"
+      height="100%"
+      bg="white"
+      padding="20px"
+      textAlign="center"
+    >
+      <Image
+        src={JavaScript}
+        alt='marketing'
+        style={{
+          borderRadius: "20px",
+          position: "relative",
+          width: "100%",
+          height: "200px", // Adjust the desired height
+          objectFit: "cover",
+        }}
+      />
+      <Text
+        style={{
+          fontWeight: "700",
+          fontSize: "24px",
+          color: "#52524f",
+          marginTop: "10px",
+        }}
+      >
+        Java Script
+      </Text>
+    </Box>
+  </GridItem>
+  <GridItem>
+    <Box
+      borderRadius="20px"
+      height="100%"
+      bg="white"
+      padding="20px"
+      textAlign="center"
+    >
+      <Image
+        src={OnlineMarketing}
+        alt='control'
+        style={{
+          borderRadius: "20px",
+          position: "relative",
+          width: "100%",
+          height: "200px", // Adjust the desired height
+          objectFit: "cover",
+        }}
+      />
+      <Text
+        style={{
+          fontWeight: "700",
+          fontSize: "24px",
+          color: "#52524f",
+          marginTop: "10px",
+        }}
+      >
+        Online Marketing
+      </Text>
+    </Box>
+  </GridItem>
+  <GridItem>
+    <Box
+      borderRadius="20px"
+      height="100%"
+      bg="white"
+      padding="20px"
+      textAlign="center"
+    >
+      <Image
+        src="https://hb.bizmrg.com/frontend-scripts/assets/home/directions/analytics.jpeg"
+        alt='analytics'
+        style={{
+          borderRadius: "20px",
+          position: "relative",
+          width: "100%",
+          height: "200px", // Adjust the desired height
+          objectFit: "cover",
+        }}
+      />
+      <Text
+        style={{
+          fontWeight: "700",
+          fontSize: "24px",
+          color: "#52524f",
+          marginTop: "10px",
+        }}
+      >
+        Analytics
+      </Text>
+    </Box>
+  </GridItem>
+  <GridItem>
+    <Box
+      borderRadius="20px"
+      height="100%"
+      bg="white"
+      padding="20px"
+      textAlign="center"
+    >
+      <Image
+        src={Design}
+        alt='hi-tech'
+        style={{
+          borderRadius: "20px",
+          position: "relative",
+          width: "100%",
+          height: "200px", // Adjust the desired height
+          objectFit: "cover",
+        }}
+      />
+      <Text
+        style={{
+          fontWeight: "700",
+          fontSize: "24px",
+          color: "#52524f",
+          marginTop: "10px",
+        }}
+      >
+        Designing
+      </Text>
+    </Box>
+  </GridItem>
+</Grid>
+
+
 
       {/* ------------------------------------------ SECOND SECTION ---------------------------------------- */}
-      <Stack style={{ textAlign: "left", fontFamily: "Montserrat, sans-serif", margin: "0px 0px 20px 60px", marginTop: "100px"}}>
+      {/* <Stack style={{ textAlign: "left", fontFamily: "Montserrat, sans-serif", margin: "0px 0px 20px 60px", marginTop: "100px"}}>
         <Heading fontSize="5xl">Assemble your training programs in 4 steps</Heading>
         <Text style={{ fontSize: "21px" }}>The constructor includes dozens of parameters that will make learning as convinient as possible for you</Text>
-      </Stack>
-      <Grid
+      </Stack> */}
+      {/* <Grid
        width="90%"
        margin="auto"
        marginTop={50}
        templateColumns='repeat(3, 1fr)'
        gap={10}
        fontFamily="Montserrat, sans-serif"
-      >
-        <GridItem bg="#b160eb"  style={{borderRadius:"35px", padding: "20px 30px"}}>
+      > */}
+        {/* <GridItem bg="#b160eb"  style={{borderRadius:"35px", padding: "20px 30px"}}>
           <Stack textAlign="left" color="whiteAlpha.800">
             <p>Training program</p>
             <p style={{fontSize: "40px",  fontWeight:"700"}}>Information Technology</p>
@@ -122,9 +288,9 @@ const Directions = () => {
               </Center>
             </Link>
           </Stack>
-        </GridItem>
+        </GridItem> */}
 
-      </Grid>
+      {/* </Grid> */}
     </div>
   )
 }

@@ -1,11 +1,10 @@
 import { Box, Button, ButtonGroup, HStack, Image, Spacer, Stack, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
-// import logo from '../images/teal-flag-2494-logo.png'
 
 const Footer = () => {
     return (
-        <div style={{ fontFamily: "Montserrat, sans-serif" }}>
-            <Box style={{ padding: "10px 30px 50px 30px", marginTop: "300px" }}>
+        <div style={{ fontFamily: "Montserrat, sans-serif"}}>
+            <Box style={{ padding: "10px 30px 50px 30px", marginTop: "100px" }}>
                 <HStack spacing="28px" fontWeight={600}>
                     {/* <Image src={logo} alt='geek-brains-logo' width={200} /> */}
                     <p>+7 499 922-47-10</p>
@@ -22,7 +21,7 @@ const Footer = () => {
                     </ButtonGroup>
                 </HStack>
                 <hr></hr>
-                <HStack spacing="120px">
+                <HStack spacing="120px" marginLeft="100px">
                     <Stack>
                         <Text style={{ fontWeight: "700", fontSize: "18px", padding: "10px 0px" }}>Studying programs</Text>
                         <HStack spacing="100px">
@@ -50,9 +49,9 @@ const Footer = () => {
                         <Stack textAlign="top">
                             <Text style={{ fontWeight: "700", fontSize: "18px", padding: "10px 0px" }}>Testing</Text>
                             <VStack>
-                                <p>All tests</p>
-                                <p>Career guidance</p>
-                                <p>Profession Selection</p>
+                                <p>Help And Information</p>
+                                <p>FAQ</p>
+                                <p>Carrers</p>
                             </VStack>
                         </Stack>
                         <Stack>

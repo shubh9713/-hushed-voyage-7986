@@ -49,28 +49,16 @@ const SingleProgramePage = () => {
     
             if(courseExist){
                 toast({
-                    title: `Program already added to learning`,
+                    title: `Program already added to Active Courses`,
                     status: 'error',
                     isClosable: true,
                 })
             }
             else{
                 addLearning(program);
-    
-                // axios({
-                //     url: `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/users/${user.id}`,
-                //     method: 'put',
-                //     data : user
-                // })
-                // .then((res) => {
-                //     console.log(res.data);
-                // })
-                // .catch((err) => {
-                //     console.log(err);
-                // });
-                
+
                 toast({
-                    title: `Program added to learning`,
+                    title: `Course is added to Active Courses`,
                     status: 'success',
                     isClosable: true,
                 });
@@ -82,7 +70,7 @@ const SingleProgramePage = () => {
         <div style={{ fontFamily: "Montserrat, sans-serif" }}>
             <Navbar />
             <Flex direction="column">
-                <Box w="100%" bg="gray.100" mt={10} style={{ textAlign: "left", padding: "50px 50px" }}>
+                {/* <Box w="100%" bg="gray.100" mt={10} style={{ textAlign: "left", padding: "50px 50px" }}>
                     <Box w="60%">
                         <Box>
                             <Heading fontSize="6xl" style={{ fontFamily: "Montserrat, sans-serif" }}>{program.title}</Heading>
@@ -97,10 +85,12 @@ const SingleProgramePage = () => {
                                     <p><span style={{ fontWeight: "700" }}>Specialization : </span>
                                         <Tag size="md" variant='solid' colorScheme='gray'>{program.specialization}</Tag>
                                     </p>
+                                    
                                 ) : (
                                     null
                                 )
                             }
+                            <p><span style={{ fontWeight: "700" }}>Price : </span> {program.Price}</p>
                         </Box>
                         <Box>
 
@@ -110,79 +100,106 @@ const SingleProgramePage = () => {
                             </Tag>
                         </Box>
                     </Box>
-                </Box>
+                </Box> */}
+
+<Box w="100%" bg="gray.100" mt={10} textAlign="center" py={10}>
+        <Box w="60%" margin="0 auto">
+          <Box>
+            <Heading fontSize="6xl" fontFamily="Montserrat, sans-serif">
+              {program.title}
+            </Heading>
+          </Box>
+          <Box my={10}>
+            <p style={{ fontSize: "22px" }}>{program.description}</p>
+          </Box>
+          <Box my={10}>
+            <p>
+              <span style={{ fontWeight: "700" }}>Duration: </span>
+              {program.duration}, 12 hours a week
+            </p>
+            {program.specialization && (
+              <p>
+                <span style={{ fontWeight: "700" }}>Specialization: </span>
+                <Tag size="md" variant="solid" colorScheme="gray">
+                  {program.specialization}
+                </Tag>
+              </p>
+            )}
+            <p>
+              <span style={{ fontWeight: "700" }}>Price: </span>
+              {program.Price}
+            </p>
+          </Box>
+          <Box>
+            <Text fontSize="30px">Click below to buy the Course and Start Learning</Text>
+            <Tag
+              variant="solid"
+              colorScheme="blue"
+              p={3}
+              cursor="pointer"
+              onClick={handleAdd}
+              _hover={{ opacity: 0.8 }}
+            >
+              <Text fontSize="xl"> Start Your Learning</Text>
+            </Tag>
+          </Box>
+        </Box>
+      </Box>
 
 
                 {/* ----------------------------- PROGRAM TEACHERS ---------------------------- */}
                 <Flex bg="twitter.50">
                     <Box w="100%" style={{ textAlign: "left", padding: "50px 50px" }}>
-                        <Heading size="xl" style={{ fontFamily: "Montserrat, sans-serif" }}>Program <span style={{ color: "darkcyan" }}>instructors</span></Heading>
+                        <Heading size="xl" style={{ fontFamily: "Montserrat, sans-serif" }}><span style={{ color: "black" }}>The Curriculum Team</span></Heading>
                         <Box my={10}>
                             <p style={{ fontSize: "22px" }}>
-                                As teachers, we invite specialists who know IT from the inside: business owners, executives, managers, scientists and university staff. These specialists conduct lectures and seminars, answer students' questions, help with homework and provide individual advice.
+                            With extensive industry experience, the Masai Curriculum Team is a group of expert instructors. All our instructors share 2 things in common, on-the-job learnings and a passion for teaching.
                             </p>
                         </Box>
 
                         <Flex gap={10}>
                             <Box style={{ backgroundColor: "white", width: "55%", padding: "20px 20px", borderRadius: "25px" }}>
-                                <HStack spacing="40px">
-                                    <Image src='https://gb.ru/channels/base/images/teachers/levieev.png' alt="Mike Smith" style={{ width: "100px", borderRadius: "50%" }} />
-                                    <p style={{ fontWeight: "700", fontSize: "26px" }}>Mike Smith</p>
-                                </HStack>
+                                    <Image src='https://masai-website-images.s3.ap-south-1.amazonaws.com/image_47_a922f4522c.png' alt="Vivek M. Agrawal" style={{ width: "100%", borderRadius: "20%",  }} />
+                                    <p style={{ fontWeight: "700", fontSize: "26px", textAlign:"center" }}>Vivek M. Agrawal</p>
+                                
                                 <Box my={5}>
-                                    <p style={{ fontWeight: "600" }}>Program Instructor:</p>
-                                    <p>Programming, data science</p>
-                                </Box>
-                                <Box my={5}>
-                                    <p style={{ fontWeight: "600" }}>Education:</p>
-                                    <p>Moscow Institute of Physics and Technology</p>
-                                    <p>Moscow Technological University</p>
+                                    <p style={{ fontWeight: "600", textAlign:"center" }}>Director Curriculum:</p>
+                                    <p style={{ fontWeight: "600", textAlign:"center" }}>Programming, Java Script</p>
                                 </Box>
                             </Box>
+
                             <Box style={{ backgroundColor: "white", width: "55%", padding: "20px 20px", borderRadius: "25px" }}>
-                                <HStack spacing="40px">
-                                    <Image src='https://gb.ru/channels/base/images/teachers/savat.png' alt="Alexei Walker" style={{ width: "150px", borderRadius: "50%" }} />
-                                    <p style={{ fontWeight: "700", fontSize: "26px" }}>Alexei Walker</p>
-                                </HStack>
+                                
+                                    <Image src='https://masai-website-images.s3.ap-south-1.amazonaws.com/abdul_45448bd4cc.jpeg' alt="Alexei Walker" style={{ width: "100%", borderRadius: "20%" }} />
+                                    <p style={{ fontWeight: "700", fontSize: "26px", textAlign:"center" }}>Abdul Jabbar Peer</p>
+                                
                                 <Box my={5}>
-                                    <p style={{ fontWeight: "600" }}>Program Instructor:</p>
-                                    <p>Mathematics</p>
+                                    <p style={{ fontWeight: "600",textAlign:"center" }}>Program Instructor:</p>
+                                    <p style={{ fontWeight: "600",textAlign:"center"}}>React JS</p>
                                 </Box>
+    
+                            </Box>
+                            <Box style={{ backgroundColor: "white", width: "60%", padding: "20px 20px", borderRadius: "25px" }}>
+                                
+                                    <Image src='https://masai-website-images.s3.ap-south-1.amazonaws.com/varun_bhatt_60be6038a5.jpeg' alt="Murat Deniz" style={{ width: "100%", borderRadius: "20%", height:"280px" }} />
+                                    <p style={{ fontWeight: "700", fontSize: "26px", textAlign:"center" }}>Varun Bhatt</p>
+                    
                                 <Box my={5}>
-                                    <p style={{ fontWeight: "600" }}>Education:</p>
-                                    <p>Moscow State University</p>
-                                    <p>Russian School of Economics</p>
+                                    <p style={{ fontWeight: "600",textAlign:"center" }}> Curriculum Lead</p>
+                                    <p style={{ fontWeight: "600",textAlign:"center" }}>Programming, DSA</p>
                                 </Box>
+                                
                             </Box>
                             <Box style={{ backgroundColor: "white", width: "55%", padding: "20px 20px", borderRadius: "25px" }}>
-                                <HStack spacing="40px">
-                                    <Image src='https://gb.ru/channels/base/images/teachers/zaayrnyj.png' alt="Murat Deniz" style={{ width: "100px", borderRadius: "50%" }} />
-                                    <p style={{ fontWeight: "700", fontSize: "26px" }}>Murat Deniz</p>
-                                </HStack>
+                                
+                                    <Image src='https://masai-website-images.s3.ap-south-1.amazonaws.com/Albert_28b73517f6.jpg' alt="Sean Paul" style={{ width: "100%", borderRadius: "20%" }} />
+                                    <p style={{ fontWeight: "700", fontSize: "26px",textAlign:"center" }}>Albert Sebastian</p>
+                                
                                 <Box my={5}>
-                                    <p style={{ fontWeight: "600" }}>Program Instructor:</p>
-                                    <p>Programming, C#</p>
+                                    <p style={{ fontWeight: "700" ,textAlign:"center" }}>Director: Bussiness Head</p>
+                                    <p style={{ fontWeight: "600" ,textAlign:"center" }}>Fundamentals of Programming</p>
                                 </Box>
-                                <Box my={5}>
-                                    <p style={{ fontWeight: "600" }}>Education:</p>
-                                    <p>MATI-RGTU im. K.E. Tsiolkovsky</p>
-                                    <p>Open Education Institute.</p>
-                                </Box>
-                            </Box>
-                            <Box style={{ backgroundColor: "white", width: "55%", padding: "20px 20px", borderRadius: "25px" }}>
-                                <HStack spacing="40px">
-                                    <Image src='https://gb.ru/channels/base/images/teachers/kamyan.png' alt="Sean Paul" style={{ width: "100px", borderRadius: "50%" }} />
-                                    <p style={{ fontWeight: "700", fontSize: "26px" }}>Sean Paul</p>
-                                </HStack>
-                                <Box my={5}>
-                                    <p style={{ fontWeight: "600" }}>Program Instructor:</p>
-                                    <p>Developer, Fundamentals of Programming</p>
-                                </Box>
-                                <Box my={5}>
-                                    <p style={{ fontWeight: "600" }}>Education:</p>
-                                    <p>ussian University of Economics</p>
-                                    <p>Moscow State Pedagogical University</p>
-                                </Box>
+                            
                             </Box>
                         </Flex>
                     </Box>
@@ -190,7 +207,7 @@ const SingleProgramePage = () => {
 
 
                 {/* --------------------------- HIRING PARTNERS -------------------------- */}
-                <Flex direction="column">
+                {/* <Flex direction="column">
                     <Box w="60%" style={{ textAlign: "left", padding: "50px 50px" }}>
                         <Heading style={{ fontFamily: "Montserrat, sans-serif" }}>Hiring Partners</Heading>
                         <Box my={10}>
@@ -327,116 +344,117 @@ const SingleProgramePage = () => {
                             </GridItem>
                         </Grid>
                     </Box>
-                </Flex>
+                </Flex> */}
 
                 {/* --------------------WHAT YOU'LL LEARN----------------------- */}
-                <Box w="100%" bg="#eff0f5" style={{ textAlign: "left", padding: " 50px 50px" }}>
-                    <Heading size="xl" style={{ fontFamily: "Montserrat, sans-serif" }}>Program Benefits</Heading>
-                    <Box my={10}>
-                        <p style={{ fontSize: "22px" }}>The program brings together the experience of leading experts and methodologists, fundamental and applied knowledge, and up-to-date technological tools. All this is presented in an accessible way - we know how to teach and know exactly what the path in the IT profession can be.</p>
-                    </Box>
-                    <Grid
-                        w="70%"
-                        templateColumns='repeat(2, 1fr)'
-                        gap={10}
-                        my={10}
-                    >
-                        <GridItem style={{
-                            backgroundColor: "white",
-                            padding: "30px 30px",
-                            height: "130px",
-                            borderRadius: "25px",
-                            boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
-                        }}>
-                            <Flex direction="row" gap={10}>
-                                <Image src='https://gb.ru/channels/base/images/benefits/user_outgoing_outline_28.svg' alt="pb-1" style={{ width: "40px" }} />
-                                <Box>
-                                    <p style={{ fontWeight: "700" }}>Smooth entry</p>
-                                    <p>Suitable even for IT beginners</p>
-                                </Box>
-                            </Flex>
-                        </GridItem>
-                        <GridItem style={{
-                            backgroundColor: "white",
-                            padding: "30px 30px",
-                            height: "130px",
-                            borderRadius: "25px",
-                            boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
-                        }}>
-                            <Flex direction="row" gap={10}>
-                                <Image src='https://gb.ru/channels/base/images/benefits/crown_outline_28.svg' alt="pb-2" style={{ width: "40px" }} />
-                                <Box>
-                                    <p style={{ fontWeight: "700" }}>Career prospects</p>
-                                    <p>Increase your value in the job market</p>
-                                </Box>
-                            </Flex>
-                        </GridItem>
-                        <GridItem style={{
-                            backgroundColor: "white",
-                            padding: "30px 30px",
-                            height: "130px",
-                            borderRadius: "25px",
-                            boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
-                        }}>
-                            <Flex direction="row" gap={10}>
-                                <Image src='https://gb.ru/channels/base/images/benefits/key_outline_28.svg' alt="pb-3" style={{ width: "40px" }} />
-                                <Box>
-                                    <p style={{ fontWeight: "700" }}>Universal Skills</p>
-                                    <p>Learn not only the basics, but also advanced tools</p>
-                                </Box>
-                            </Flex>
-                        </GridItem>
-                        <GridItem style={{
-                            backgroundColor: "white",
-                            padding: "30px 30px",
-                            height: "130px",
-                            borderRadius: "25px",
-                            boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
-                        }}>
-                            <Flex direction="row" gap={10}>
-                                <Image src='https://gb.ru/channels/base/images/benefits/education_outline_28.svg' alt="pb-4" style={{ width: "40px" }} />
-                                <Box>
-                                    <p style={{ fontWeight: "700" }}>Learning by doing</p>
-                                    <p>Solve over 50 practical problems</p>
-                                </Box>
-                            </Flex>
-                        </GridItem>
-                        <GridItem style={{
-                            backgroundColor: "white",
-                            padding: "30px 30px",
-                            height: "130px",
-                            borderRadius: "25px",
-                            boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
-                        }}>
-                            <Flex direction="row" gap={10}>
-                                <Image src='https://gb.ru/channels/base/images/benefits/calendar_outline_28.svg' alt="pb-5" style={{ width: "40px" }} />
-                                <Box>
-                                    <p style={{ fontWeight: "700" }}>Quick results</p>
-                                    <p>Opportunity to find a job within 9 months after the start of training</p>
-                                </Box>
-                            </Flex>
-                        </GridItem>
-                        <GridItem style={{
-                            backgroundColor: "white",
-                            padding: "30px 30px",
-                            height: "130px",
-                            borderRadius: "25px",
-                            boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
-                        }}>
-                            <Flex direction="row" gap={10}>
-                                <Image src='https://gb.ru/channels/base/images/benefits/speedometer_max_outline_28.svg' alt="pb-1" style={{ width: "40px" }} />
-                                <Box>
-                                    <p style={{ fontWeight: "700" }}>Popular specializations</p>
-                                    <p>Consciously choose your</p>
-                                </Box>
-                            </Flex>
-                        </GridItem>
-                    </Grid>
-                </Box>
+                
+
+<Box w="100%" bg="#eff0f5" textAlign="center" py={10}>
+      <Heading size="xl" fontFamily="Montserrat, sans-serif">
+        Program Benefits
+      </Heading>
+      <Box my={10}>
+        <p style={{ fontSize: "22px" }}>
+          The program brings together the experience of leading experts and methodologists, fundamental and applied knowledge, and up-to-date technological tools. All this is presented in an accessible way - we know how to teach and know exactly what the path in the IT profession can be.
+        </p>
+      </Box>
+      <Grid
+        w="70%"
+        templateColumns="repeat(2, 1fr)"
+        gap={10}
+        mx="auto"
+        justifyContent="center"
+      >
+        <GridItem
+          bg="white"
+          p={6}
+          borderRadius="25px"
+          boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
+        >
+          <Flex direction="row" align="center" gap={4}>
+            <Image src="https://gb.ru/channels/base/images/benefits/user_outgoing_outline_28.svg" alt="pb-1" boxSize="40px" />
+            <Box>
+              <Heading as="h3" fontSize="xl" fontWeight="bold">Smooth entry</Heading>
+              <p>Suitable even for IT beginners</p>
+            </Box>
+          </Flex>
+        </GridItem>
+        <GridItem
+          bg="white"
+          p={6}
+          borderRadius="25px"
+          boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
+        >
+          <Flex direction="row" align="center" gap={4}>
+            <Image src="https://gb.ru/channels/base/images/benefits/crown_outline_28.svg" alt="pb-2" boxSize="40px" />
+            <Box>
+              <Heading as="h3" fontSize="xl" fontWeight="bold">Career prospects</Heading>
+              <p>Increase your value in the job market</p>
+            </Box>
+          </Flex>
+        </GridItem>
+        <GridItem
+          bg="white"
+          p={6}
+          borderRadius="25px"
+          boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
+        >
+          <Flex direction="row" align="center" gap={4}>
+            <Image src="https://gb.ru/channels/base/images/benefits/key_outline_28.svg" alt="pb-3" boxSize="40px" />
+            <Box>
+              <Heading as="h3" fontSize="xl" fontWeight="bold">Universal Skills</Heading>
+              <p>Learn not only the basics, but also advanced tools</p>
+            </Box>
+          </Flex>
+        </GridItem>
+        <GridItem
+          bg="white"
+          p={6}
+          borderRadius="25px"
+          boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
+        >
+          <Flex direction="row" align="center" gap={4}>
+            <Image src="https://gb.ru/channels/base/images/benefits/education_outline_28.svg" alt="pb-4" boxSize="40px" />
+            <Box>
+              <Heading as="h3" fontSize="xl" fontWeight="bold">Learning by doing</Heading>
+              <p>Solve over 50 practical problems</p>
+            </Box>
+          </Flex>
+        </GridItem>
+        <GridItem
+          bg="white"
+          p={6}
+          borderRadius="25px"
+          boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
+        >
+          <Flex direction="row" align="center" gap={4}>
+            <Image src="https://gb.ru/channels/base/images/benefits/calendar_outline_28.svg" alt="pb-5" boxSize="40px" />
+            <Box>
+              <Heading as="h3" fontSize="xl" fontWeight="bold">Quick results</Heading>
+              <p>Opportunity to find a job within 9 months after the start of training</p>
+            </Box>
+          </Flex>
+        </GridItem>
+        <GridItem
+          bg="white"
+          p={6}
+          borderRadius="25px"
+          boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
+        >
+          <Flex direction="row" align="center" gap={4}>
+            <Image src="https://gb.ru/channels/base/images/benefits/speedometer_max_outline_28.svg" alt="pb-6" boxSize="40px" />
+            <Box>
+              <Heading as="h3" fontSize="xl" fontWeight="bold">Popular specializations</Heading>
+              <p>Consciously choose your path</p>
+            </Box>
+          </Flex>
+        </GridItem>
+      </Grid>
+    </Box>
 
 
                 {/* ------------------------------ FAQs ---------------------------------- */}
-                <Box w="100%" style={{ textAlign: "left", padding: " 50px 50px 0px 50px" }}>
+                {/* <Box w="100%" style={{ textAlign: "left", padding: " 50px 50px 0px 50px" }}>
                     <Heading size="xl" style={{ fontFamily: "Montserrat, sans-serif" }}>Frequently Asked <span style={{ color: "slateblue" }}>Questions</span></Heading>
                     <Accordion allowToggle>
                         <Grid
@@ -543,7 +561,7 @@ const SingleProgramePage = () => {
                             </GridItem>
                         </Grid>
                     </Accordion>
-                </Box>
+                </Box> */}
 
 
                 {/* ---------------------------- FOOTER -------------------------------- */}
