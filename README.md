@@ -27,47 +27,5 @@ HTML
 CSS
 ReactJS
 Chakra UI
-Folder Structure
-    hushed-voyage-7986
-    ├── README.md
-    ├── node_modules
-    ├── package-lock.json
-    ├── package.json
-    ├── .gitignore
-    ├── db.json
-    ├── public
-    │   ├── favicon.ico
-    │   ├── index.html
-    │   └── manifest.json
-    └── src
-        └── Components
-        │   ├── Directions.jsx
-        │   ├── Footer.jsx
-        │   ├── IntroSection.jsx
-        │   ├── MiddleSection.jsx
-        │   └── Navbar.jsx
-        ├── Context
-        │   └── AuthContextProvider.jsx
-        ├── images
-        │   ├── CODE.png
-        │   ├── student1.jpg
-        │   ├── student2.jpg
-        │   ├── student3.jpg
-        │   └── cartoons.png
-        ├── Pages
-        │   ├── Design.jsx
-        │   ├── Home.jsx
-        │   ├── ITTraining.jsx
-        │   ├── Login.jsx
-        │   ├── MyLearning.jsx
-        │   ├── Programming.jsx
-        │   ├── Registration.jsx
-        │   └── SingleProgramPage.jsx
-        ├── Routes
-        │   ├── AllRoutes.jsx
-        │   └── PrivateRoute.jsx
-        ├── App.css
-        ├── App.js
-        ├── App.test.js
-        ├── index.css
+
         └── index.js
