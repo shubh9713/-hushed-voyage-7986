@@ -28,4 +28,3 @@ CSS
 ReactJS
 Chakra UI
 
-        └── index.js
